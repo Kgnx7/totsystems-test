@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { Provider } from 'react-redux'
 
@@ -13,7 +13,7 @@ import './index.css'
 
 ReactDOM.render(
     <React.StrictMode>
-        <Router>
+        <Router basename="/">
             <Provider store={store}>
                 <ThemeProvider theme={theme}>
                     <App />
