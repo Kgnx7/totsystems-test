@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/TOTSystems-test/static/css/main.79dd0793.chunk.css",
+    "main.js": "/TOTSystems-test/static/js/main.c5e14620.chunk.js",
+    "main.js.map": "/TOTSystems-test/static/js/main.c5e14620.chunk.js.map",
+    "runtime-main.js": "/TOTSystems-test/static/js/runtime-main.6c4cf1b0.js",
+    "runtime-main.js.map": "/TOTSystems-test/static/js/runtime-main.6c4cf1b0.js.map",
+    "static/js/2.cb9fdee4.chunk.js": "/TOTSystems-test/static/js/2.cb9fdee4.chunk.js",
+    "static/js/2.cb9fdee4.chunk.js.map": "/TOTSystems-test/static/js/2.cb9fdee4.chunk.js.map",
+    "index.html": "/TOTSystems-test/index.html",
+    "precache-manifest.9b4729963a8d9b626b6793b54c84a8a6.js": "/TOTSystems-test/precache-manifest.9b4729963a8d9b626b6793b54c84a8a6.js",
+    "service-worker.js": "/TOTSystems-test/service-worker.js",
+    "static/css/main.79dd0793.chunk.css.map": "/TOTSystems-test/static/css/main.79dd0793.chunk.css.map",
+    "static/js/2.cb9fdee4.chunk.js.LICENSE.txt": "/TOTSystems-test/static/js/2.cb9fdee4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c4cf1b0.js",
+    "static/js/2.cb9fdee4.chunk.js",
+    "static/css/main.79dd0793.chunk.css",
+    "static/js/main.c5e14620.chunk.js"
+  ]
+}
