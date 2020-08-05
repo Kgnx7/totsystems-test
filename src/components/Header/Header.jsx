@@ -88,11 +88,11 @@ export default function Header() {
     const drawerLinks = [
         {
             label: 'Всякое 🙃',
-            link: '/fun',
+            link: '/chat/fun',
         },
         {
             label: 'Рабочий чат 👩‍💻',
-            link: '/workchat',
+            link: '/chat/work',
         },
     ]
     const drawer = (
@@ -103,11 +103,11 @@ export default function Header() {
             <Divider />
             <List>
                 {drawerLinks.map(({ label, link }) => (
-                    <ListItem button key={label}>
-                        <Link component={RouterLink} to={link}>
+                    <Link key={label} component={RouterLink} to={link}>
+                        <ListItem button key={label}>
                             <ListItemText primary={label} />
-                        </Link>
-                    </ListItem>
+                        </ListItem>
+                    </Link>
                 ))}
             </List>
         </div>
@@ -123,6 +123,7 @@ export default function Header() {
                         className={classes.menuButton}
                         color="inherit"
                         aria-label="menu"
+                        onClick={handleDrawerToggle}
                     >
                         <MenuIcon />
                     </IconButton>

@@ -5,6 +5,7 @@ import Home from '../Home'
 import PrivateRoute from './PrivateRoute'
 import Login from '../../features/login'
 import Profile from '../Profile'
+import Chat from '../../features/chat'
 
 export default function Routes() {
     return (
@@ -17,6 +18,9 @@ export default function Routes() {
             </PrivateRoute>
             <PrivateRoute exact path="/profile">
                 <Profile />
+            </PrivateRoute>
+            <PrivateRoute exact path="/chat/:title">
+                <Chat />
             </PrivateRoute>
         </Switch>
     )
