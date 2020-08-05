@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -12,10 +12,10 @@ import Header from '../../components/Header'
 import Main from '../../components/Main'
 import Message from './Message'
 import InputMessage from './InputMessage'
+import EditMessageDialog from './EditMessageDialog'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        // border: '1px solid coral',
         position: 'relative',
     },
     paper: {
@@ -33,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function Chat() {
+    const [selectedMessage, setSelectedMessage] = useState(null)
+
     const { title } = useParams()
     const classes = useStyles()
     const dispatch = useDispatch()
@@ -40,9 +42,21 @@ export default function Chat() {
 
     const messagesEndRef = useRef(null)
 
+    const handleMessageClick = (message) => {
+        setSelectedMessage(message)
+    }
+
+    const closeMessageDialog = () => {
+        setSelectedMessage(null)
+    }
+
     const scrollToBottom = () => {
         messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
     }
+
+    useEffect(() => {
+        scrollToBottom()
+    }, [])
 
     const handleMessageSend = (newMessage) => {
         dispatch(sendMessage(newMessage))
@@ -61,7 +75,10 @@ export default function Chat() {
                     <Paper className={classes.paper}>
                         {messages &&
                             messages.map((message) => (
-                                <Message message={message} />
+                                <Message
+                                    message={message}
+                                    onClick={handleMessageClick}
+                                />
                             ))}
                         <div
                             ref={messagesEndRef}
@@ -74,6 +91,14 @@ export default function Chat() {
                         onSubmit={handleMessageSend}
                     />
                 </Container>
+                {selectedMessage && (
+                    <EditMessageDialog
+                        open={selectedMessage !== null}
+                        onClose={closeMessageDialog}
+                        chat={title}
+                        message={selectedMessage}
+                    />
+                )}
             </Main>
         </>
     )

@@ -15,7 +15,7 @@ export default function InputMessage({ chatTitle, onSubmit, ...rest }) {
 
     const handleMessageSend = () => {
         if (!message.length) return
-
+        setMessage('')
         onSubmit({
             chat: chatTitle,
             message: {

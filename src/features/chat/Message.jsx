@@ -23,13 +23,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export default function Message({ message }) {
+export default function Message({ message, onClick }) {
     const currentUser = useSelector((state) => state.auth.user)
     const classes = useStyles({
         currentUser: currentUser.login === message.sender,
     })
     return (
-        <div className={classes.message}>
+        <div className={classes.message} onClick={() => onClick(message)}>
             <Typography variant="h6" component="span" color="textPrimary">
                 {message.text}
             </Typography>

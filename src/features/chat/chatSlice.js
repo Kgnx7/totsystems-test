@@ -17,13 +17,15 @@ export const chatSlice = createSlice({
             ]
         },
         remove: (state, { payload }) => {
-            state.chats[payload.chat] = state[payload.chat].filter(
+            state.chats[payload.chat] = state.chats[payload.chat].filter(
                 (message) => message.id !== payload.id
             )
         },
         edit: (state, { payload }) => {
-            state.chats[payload.chat] = state[payload.chat].map((message) =>
-                message.id === payload.message ? payload.message : message
+            state.chats[payload.chat] = state.chats[
+                payload.chat
+            ].map((message) =>
+                message.id === payload.message.id ? payload.message : message
             )
         },
         update: (state, { payload }) => {
@@ -46,16 +48,16 @@ export const chatSlice = createSlice({
 
 export const { send, remove, edit, update } = chatSlice.actions
 
-export const sendMessage = (newMessage) => (dispatch) => {
-    dispatch(send(newMessage))
+export const sendMessage = ({ chat, message }) => (dispatch) => {
+    dispatch(send({ chat, message }))
 }
 
-export const removeMessage = (messageId) => (dispatch) => {
-    dispatch(remove(messageId))
+export const removeMessage = ({ chat, id }) => (dispatch) => {
+    dispatch(remove({ chat, id }))
 }
 
-export const editMessage = (editedMessage) => (dispatch) => {
-    dispatch(edit(editedMessage))
+export const editMessage = ({ chat, message }) => (dispatch) => {
+    dispatch(edit({ chat, message }))
 }
 
 export const fetchMessages = () => async (dispatch) => {
